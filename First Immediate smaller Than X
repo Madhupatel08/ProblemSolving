@@ -1,4 +1,4 @@
-//N = 5 arr[] = {4 67 13 12 15} X = 16 Output: 15
+//N = 5 arr[] = {4 67 13 12 15} X = 16 Output: 15;
 
  public static int immediateSmaller(int arr[], int n, int x)
     {
