@@ -1,0 +1,41 @@
+//Input:
+//2
+//7
+//1 9 3 10 4 20 2
+//11
+//36 41 56 35 44 33 34 92 43 32 42
+//Output:
+//4
+//5
+
+int findLongestConseqSubseq(int a[], int n)
+    {
+        
+	    // Your code here	
+	    HashMap<Integer,Boolean>map=new HashMap<>();
+        for(int val: a){
+            map.put(val,true);
+        }
+        for(int val: a){
+            if(map.containsKey(val-1)){
+                map.put(val,false);
+            }
+        }
+        int msp=0;
+        int ml=0;
+        for(int val: a){
+            if(map.get(val)==true){
+                int tl=1;
+                int tsp=val;
+                while(map.containsKey(tsp+tl)){
+                    tl++;
+                }
+                if(tl>ml){
+                    ml=tl;
+                    msp=tsp;
+                }
+            }
+        }
+       return ml;
+	    
+    }
