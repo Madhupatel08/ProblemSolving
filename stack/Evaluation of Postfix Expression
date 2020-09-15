@@ -1,0 +1,42 @@
+//Input: str = "231*+9-"
+//Output: -4
+
+// Your code here
+        
+        Stack<Integer>num=new Stack<>();
+        
+        for(int i=0;i<exp.length();i++){
+            char ch=exp.charAt(i);
+            if(ch>='0' && ch<='9'){
+                num.push(ch-'0');
+            }else if(ch=='*' || ch=='/' || ch=='+' || ch=='-'){
+                //while(optr.size()>0 && priority(optr.peek())>=priority(ch)){
+                    int n2=num.pop();
+                    int n1=num.pop();
+                    //char op=optr.pop();
+                    int ans=solve(n1,n2,ch);
+                    num.push(ans);
+                //}
+                //optr.push(ch);
+            }
+        }
+        return num.peek();
+    }
+    public static int priority(char ch){
+        if(ch=='+' || ch=='-'){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+    public static int solve(int n1,int n2,char ch){
+        if(ch=='+'){
+            return n1+n2;
+        }else if(ch=='-'){
+            return n1-n2;
+        }else if(ch=='*'){
+            return n1*n2;
+        }else{
+            return n1/n2;
+        }
+    }
