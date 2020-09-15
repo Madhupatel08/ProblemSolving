@@ -1,28 +1,23 @@
-        /*You are required to complete this function */
-	int remove_duplicate(int a[], int N)
+int remove_duplicate(int a[], int N)
 	{
-	    if (N==0 || N==1) 
-            return N; 
-	   ArrayList<Integer>array=new ArrayList<>();
-	  int i=0;
-    while(i<N){
-        if(a[i]!=a[i+1]){
-            array.add(a[i]);  
-          i++;
-        }
-        else{
-            array.add(a[i]);
-            if(i+2<N){
-             i=i+2;
-                
+	    Stack<Integer> st=new Stack<>();
+        st.push(a[0]);
+        ArrayList<Integer> ans=new ArrayList<>();
+        ans.add(a[0]);
+        for(int i=1;i<a.length;i++)
+        {
+            if(st.size()>0 && a[i]==st.peek())
+            {
+                st.pop();
             }
+            else{
+                ans.add(a[i]);
+            }
+            st.push(a[i]);
         }
+        for(int i=0;i<ans.size();i++){
+            System.out.print(ans.get(i)+" ");
+        }
+        int x=ans.size();
+        return 0;
     }
-    //array.add(a[N-1]);
-     for(int m=0;m<array.size();m++){
-         System.out.print(array.get(m)+" ");
-     }
-         System.out.println();
-         return 0;
- 	
- 	}
