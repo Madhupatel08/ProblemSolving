@@ -1,0 +1,22 @@
+//N = 5 arr[] = {4 67 13 12 15} X = 16 Output: 15
+
+ public static int immediateSmaller(int arr[], int n, int x)
+    {
+        // Your code here
+        boolean ans=false;int anss=0;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            if(arr[i]<x){
+                int diff=x-arr[i];
+                if(diff<min){
+                    min=diff;
+                    anss=arr[i];
+                }
+                ans=true;
+            }
+        }
+        if(ans==true){
+            return anss;
+        }
+        return -1;
+    }
