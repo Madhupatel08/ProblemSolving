@@ -1,0 +1,26 @@
+  static ArrayList<Integer> subarraySum(int n, int s, int[] m) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        // Your code here
+        int sum=0;
+        int si=0;
+        int i=0;
+        for( i=0;i<m.length+1;i++){
+            while(sum > s && si < m.length){//i=0 si=0 target=12 i=5 sum=12 si=1
+                sum=sum-m[si];//
+                si++;
+            }if(sum == s){
+                int a=si+1;
+                int p=i;
+                ans.add(a);
+                ans.add(p);
+                return ans;
+             }
+             else if(sum < s && i < m.length){
+                sum+=m[i];//1 2 3 7 5//
+             }
+        }
+       ans.add(-1);
+       return ans;
+        
+        
+    }
