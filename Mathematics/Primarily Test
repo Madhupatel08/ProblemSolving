@@ -1,0 +1,14 @@
+//For a given number N check if it is prime or not. A prime number is a number which is only divisible by 1 and itself
+
+ public boolean isPrime(int N)
+    {
+        boolean isprime=true;
+      for(int i=2;i*i<=N;i++){
+          if(N%i==0){
+              isprime=false;
+              return false;
+          }
+      }
+      return true;
+     
+    }
