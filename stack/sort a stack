@@ -1,0 +1,13 @@
+public Stack<Integer> sort(Stack<Integer> s)
+	{
+		Stack<Integer>tempS=new Stack<>();
+		while(s.size()>0 ){
+		    int temp=s.pop();
+		    
+		    while(tempS.size()>0 && tempS.peek()> temp ){
+		        s.push( tempS.pop() );
+		    }
+		    tempS.push( temp );
+		}
+		return tempS;
+	}
