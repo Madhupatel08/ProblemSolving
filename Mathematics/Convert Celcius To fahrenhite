@@ -1,0 +1,9 @@
+class CelsiusToFahrenheit
+{
+    public double cToF(int C)
+    {
+        double ans=(1.8)*C;
+        ans+=32;
+        return ans;
+    }
+}
