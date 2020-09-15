@@ -1,0 +1,36 @@
+    public static int equilibriumPoint(long arr[], int n) {
+//complexity O(N*N)
+        // for(int i=0;i<n;i++){
+        //     int left_sum=0;
+        //     for(int j=0;j<=i-1;j++){
+        //         left_sum+=arr[j];
+        //     }
+        //     int right_sum=0;
+        //     for(int j=i+1;j<=n-1;j++){
+        //         right_sum+=arr[j];
+        //     }
+        //     if(right_sum==left_sum){
+        //         return i+1;
+        //     }
+        // }
+        // return -1;
+        
+// Complexity(O(N)
+        int sum=0;
+        int leftsum=0;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+        }
+        for(int i=0;i<n;i++){
+            sum-=arr[i] ; //left sum
+            if(leftsum==sum){
+                return i+1;
+            }
+            leftsum+=arr[i];
+            
+        }
+        return -1;
+    
+        
+        
+    }
