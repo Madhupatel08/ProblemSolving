@@ -1,0 +1,53 @@
+public static String infixToPostfix(String exp) {
+		
+		
+		Stack<Character>optrs=new Stack<>();
+		Stack<String>postfix=new Stack<>();
+		
+		for(int i=0;i<exp.length();i++){
+		    char ch=exp.charAt(i);
+		    
+		    if(ch>='a' && ch<='z' || ch>='A' && ch<='Z' || ch>='0' && ch<='9'){
+		        postfix.push(""+ch);
+		    }else if(ch=='('){
+		        optrs.push(ch);
+		    }else if(ch==')'){
+		        
+		        while(optrs.peek()!='('){
+		           char optr=optrs.pop();
+                    
+                    String postOp2=postfix.pop();
+                    String postOp1=postfix.pop();
+                    postfix.push(postOp1 + postOp2 + optr);
+		        }
+		        optrs.pop();
+		    }
+		    else if(ch =='*'|| ch=='/'|| ch=='+' || ch=='^' || ch=='-'){
+		        while(optrs.size()>0 && optrs.peek()!='(' && priority(optrs.peek()) >= priority(ch)){
+		            char optr=optrs.pop();
+                    
+                    String postOp2=postfix.pop();
+                    String postOp1=postfix.pop();
+                    postfix.push(postOp1 + postOp2 + optr);
+		        }
+		        optrs.push(ch);
+		    }
+		}
+		while(optrs.size()>0){
+		    char optr=optrs.pop();
+        
+		    String postOp2=postfix.pop();
+		    String postOp1=postfix.pop();
+		    postfix.push(postOp1 + postOp2 + optr);
+		}
+		return postfix.peek();
+	}
+	public static int priority(char ch){
+	    if(ch=='^'){
+	        return 2;
+	    }else if(ch=='/'|| ch=='*'){
+	        return 1;
+	    }else{
+	        return 0;
+	    }
+	}
