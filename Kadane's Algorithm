@@ -1,0 +1,25 @@
+//Kadane's Algorithm 
+//Given an array arr of N integers. Find the contiguous sub-array with maximum sum.
+class Kadane{
+    
+    // Function to find subarray with maximum sum
+    // arr: input array
+    // n: size of array
+    int maxSubarraySum(int arr[], int n){
+        
+        int cs=0,os=0,ce=0,oe=0,cmax=0,omax=Integer.MIN_VALUE;
+        while(ce<n){
+            if(cmax>0){ cmax +=arr[ce];
+            }else{ cs=ce;
+                cmax = arr[ce]; }
+            if(omax<cmax){
+                omax=cmax;
+                os=cs;  oe=ce;
+            }
+            ce++;
+        }
+        return omax;
+        
+    }
+    
+}
