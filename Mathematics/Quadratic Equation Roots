@@ -1,0 +1,18 @@
+ public void quadraticRoots(int a,int b,int c)
+    {
+        int d  = b*b - 4*a*c; 
+        int temp=d;
+      
+   if(temp<0){
+       System.out.print("Imaginary");
+   }else{
+        double x =Math.sqrt(d);
+       int m=(int) Math.floor((-b + x) / (2.0 * a));
+       int n= (int)Math.floor((-b - x) / (2.0 * a));
+       if(m>n){
+           System.out.print(m + " "+n); 
+       }else{
+           System.out.print(n + " "+m); 
+       }
+                        
+   }
