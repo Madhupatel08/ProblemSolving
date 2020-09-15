@@ -1,5 +1,5 @@
 //Remove duplicates
-//Complexity:O(n)
+//Complexity:O(n)//array and stack
 int remove_duplicate(int a[], int N)
 	{
 	    Stack<Integer> st=new Stack<>();
