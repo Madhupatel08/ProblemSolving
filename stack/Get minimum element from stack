@@ -1,0 +1,53 @@
+//link       https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1/?track=ppc-stack&batchId=221
+
+int minEle=Integer.MAX_VALUE;
+    Stack<Integer> s=new Stack<>();
+
+    /*returns min element from stack*/
+    int getMin()
+    {
+       if(s.size() == 0) {
+           return -1;
+       }
+       Stack<Integer>temp=new Stack<>();
+       minEle=Integer.MAX_VALUE;
+       while(s.size()>0) {
+           int val=s.pop();
+           temp.push(val);
+           minEle=Math.min(minEle,val);
+       }
+       
+       while(temp.size() > 0) {
+           s.push(temp.pop());
+       }
+       return minEle;
+        
+	// Your code here
+	   // if(temp.size() == 0){
+	   //     return -1;
+	   // }
+	   // while(temp.size()>1){
+	   //     int n1=temp.pop();
+	   //     int n2=temp.pop();
+	   //     temp.push(Math.min(n1,n2));
+	   // }
+	   // return temp.peek();
+    }
+    
+    /*returns poped element from stack*/
+    int pop()
+    {
+        if(s.size() == 0 ){
+            return -1;
+        }
+        return s.pop();
+	// Your code here	
+    }
+
+    /*push element x into the stack*/
+    void push(int x)
+    {
+	// Your code here
+	
+	    s.push(x);
+    }	
