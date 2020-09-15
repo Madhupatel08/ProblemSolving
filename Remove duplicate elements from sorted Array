@@ -1,0 +1,28 @@
+        /*You are required to complete this function */
+	int remove_duplicate(int a[], int N)
+	{
+	    if (N==0 || N==1) 
+            return N; 
+	   ArrayList<Integer>array=new ArrayList<>();
+	  int i=0;
+    while(i<N){
+        if(a[i]!=a[i+1]){
+            array.add(a[i]);  
+          i++;
+        }
+        else{
+            array.add(a[i]);
+            if(i+2<N){
+             i=i+2;
+                
+            }
+        }
+    }
+    //array.add(a[N-1]);
+     for(int m=0;m<array.size();m++){
+         System.out.print(array.get(m)+" ");
+     }
+         System.out.println();
+         return 0;
+ 	
+ 	}
