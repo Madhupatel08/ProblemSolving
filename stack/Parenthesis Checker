@@ -1,0 +1,41 @@
+//   {([])}=> true
+
+static boolean ispar(String x)
+    {
+        // add your code here
+        Stack<Character>st=new Stack<>();
+        // if(x.length()==0){
+        //     return true;
+        // }else if(x.charAt(0)== '}'|| x.charAt(0) == ']' || x.charAt(0) == ')'){
+        //     return false;
+        // }
+        for(int i=0;i<x.length();i++){
+            char ch=x.charAt(i);
+            if(ch=='(' || ch == '[' || ch == '{'){
+                st.push(ch);
+            }else if(ch == ')'){
+                if(st.size()>0 && st.peek()=='('){
+                    st.pop();
+                }else{
+                    return false;
+                }
+            }else if(ch == '}'){
+                if(st.size()>0 && st.peek() == '{'){
+                    st.pop();
+                }else{
+                    return false;
+                }
+            }else if( ch == ']'){
+                if(st.size()>0 && st.peek() == '['){
+                    st.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        if(st.size()!=0){
+            return false;
+        }else{
+            return true;
+        }
+    }
